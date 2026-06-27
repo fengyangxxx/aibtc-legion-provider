@@ -10,7 +10,7 @@ I registered a new provider Legion on the Stacks testnet multi-Legion registry f
 - Model: `llama-3.2-1b-instruct`
 - Kind: `provider`
 - Source: `registry`
-- Provider endpoint: `https://raw.githubusercontent.com/fengyangxxx/aibtc-legion-provider/9487f9cecfd46a737429030fda498095000d8369/endpoint/v1.json`
+- Provider endpoint: `https://fiction-adoption-donald-harvard.trycloudflare.com`
 
 ## Contract Deployments
 
@@ -34,7 +34,18 @@ The registry `register` call was confirmed on testnet:
   - `gov`: `none`
   - `fees`: `ST172BJD7XQ4J2NN8SXWC7R9WTMCX32JW03JGR29Y.legion-fees`
   - `model`: `llama-3.2-1b-instruct`
-  - `uri`: immutable provider endpoint URL above
+  - initial `uri`: immutable metadata URL in this repository
+
+After the live provider service was brought online, the registry owner updated Legion id `2` to the live HTTPS provider endpoint:
+
+- txid: `66d92979717f42ce7c155c0604dae1ec2e9ed73ec54b6bbb6a5b2153c25b503f`
+- explorer: https://explorer.hiro.so/txid/0x66d92979717f42ce7c155c0604dae1ec2e9ed73ec54b6bbb6a5b2153c25b503f?chain=testnet
+- updated `uri`: `https://fiction-adoption-donald-harvard.trycloudflare.com`
+
+The provider contract listing was also updated to the same live HTTPS endpoint:
+
+- txid: `ca3989296508af09ccd290060a0f832d7432b85ae3dafd7107cc01f31e54e7a7`
+- explorer: https://explorer.hiro.so/txid/0xca3989296508af09ccd290060a0f832d7432b85ae3dafd7107cc01f31e54e7a7?chain=testnet
 
 ## Bond and Treasury Balance
 
@@ -61,24 +72,33 @@ Read-only checks from the deployment script:
 Endpoint URL:
 
 ```text
-https://raw.githubusercontent.com/fengyangxxx/aibtc-legion-provider/9487f9cecfd46a737429030fda498095000d8369/endpoint/v1.json
+https://fiction-adoption-donald-harvard.trycloudflare.com
 ```
 
-Sanity check used:
+Sanity checks used:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/fengyangxxx/aibtc-legion-provider/9487f9cecfd46a737429030fda498095000d8369/endpoint/v1.json
+curl -fsSL https://fiction-adoption-donald-harvard.trycloudflare.com/health
+curl -fsSL https://fiction-adoption-donald-harvard.trycloudflare.com/v1/models
+curl -fsSL -X POST https://fiction-adoption-donald-harvard.trycloudflare.com/v1/chat/completions \
+  -H 'content-type: application/json' \
+  -d '{"model":"llama-3.2-1b-instruct","messages":[{"role":"user","content":"AIBTC provider sanity check"}]}'
 ```
 
-Expected result: HTTP 200 JSON with `status=ok`, `network=stacks-testnet`, and `model=llama-3.2-1b-instruct`.
+Expected result: HTTP 200 JSON. `/health` returns `status=ok`, `network=stacks-testnet`, and `model=llama-3.2-1b-instruct`; `/v1/models` lists `llama-3.2-1b-instruct`; `/v1/chat/completions` returns an OpenAI-compatible testnet sanity response from that model id.
 
-The endpoint is static and public by design. It gives reviewers a stable sanity-check URL without requiring a private API key. A production provider should replace this with a dynamic OpenAI-compatible HTTPS service backed by the listed non-Qwen model.
+The endpoint is served by the Express provider service in `endpoint/server.mjs`, exposed over HTTPS for this testnet provider run. It is a live testnet sanity provider and requires no private API key for review. A production provider should put the same service behind a durable operator domain with health monitoring, auth, rate limits, and persistent hosting.
+
+Captured endpoint sanity evidence:
+
+- `evidence/2026-06-27T05-25-53-320Z-provider-endpoint-sanity.json`
 
 ## AIBTC API Verification
 
 The verification script captured AIBTC API responses in:
 
 - `evidence/2026-06-27T04-58-25-399Z-verification.json`
+- `evidence/2026-06-27T05-25-18-756Z-verification.json` after the live endpoint update
 
 Observed `GET https://aibtc.com/api/legions` match:
 
@@ -88,6 +108,7 @@ Observed `GET https://aibtc.com/api/legions` match:
   "kind": "provider",
   "owner": "ST172BJD7XQ4J2NN8SXWC7R9WTMCX32JW03JGR29Y",
   "model": "llama-3.2-1b-instruct",
+  "uri": "https://fiction-adoption-donald-harvard.trycloudflare.com",
   "active": true,
   "treasuryBalance": 1000000,
   "count": 1,
@@ -103,7 +124,7 @@ Observed `GET https://aibtc.com/api/legions/2` details:
 - `treasuryBalance`: `1000000`
 - provider count: `1`
 - provider bond: `1000000`
-- provider endpoint: immutable raw URL above
+- provider endpoint: `https://fiction-adoption-donald-harvard.trycloudflare.com`
 
 ## Operational Notes
 
@@ -112,6 +133,8 @@ The current AIBTC MCP connection available in my workspace reported `network=mai
 One implementation issue surfaced: `@stacks/transactions` defaulted contract deployments to Clarity 4, while the AIBTC reference contracts rely on `as-contract`. A first `legion-treasury` deployment attempt failed with `use of unresolved function 'as-contract'`. Pinning deployments to `ClarityVersion.Clarity3` fixed it.
 
 The bounty text says "bond credited to your treasury contract", while the reference `legion-providers.register` contract holds the provider bond in the providers contract. To satisfy both interpretations, this implementation posts the provider bond and also deposits 1,000,000 sat into the treasury, which is what AIBTC API exposes as `treasuryBalance`.
+
+The first on-chain registration used a static immutable repository URL as a sanity endpoint. Final QA flagged that as too weak for the bounty's "different model" and "fake model rename" boundary, so I brought up the live Express provider endpoint, verified `/health`, `/v1/models`, and `/v1/chat/completions`, and then updated both the provider contract listing and registry `uri` for Legion id `2`.
 
 ## Contact
 

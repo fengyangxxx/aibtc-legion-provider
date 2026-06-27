@@ -1,0 +1,71 @@
+{
+  "endpoint": "https://fiction-adoption-donald-harvard.trycloudflare.com",
+  "legionId": "2",
+  "record": {
+    "label": "provider-set-listing-real-endpoint",
+    "txid": "ca3989296508af09ccd290060a0f832d7432b85ae3dafd7107cc01f31e54e7a7",
+    "explorer": "https://explorer.hiro.so/txid/0xca3989296508af09ccd290060a0f832d7432b85ae3dafd7107cc01f31e54e7a7?chain=testnet",
+    "confirmedAt": "2026-06-27T05:23:31.969Z",
+    "status": "success",
+    "blockHeight": 4024043
+  },
+  "tx": {
+    "tx_id": "0xca3989296508af09ccd290060a0f832d7432b85ae3dafd7107cc01f31e54e7a7",
+    "nonce": 10,
+    "fee_rate": "80000",
+    "sender_address": "ST172BJD7XQ4J2NN8SXWC7R9WTMCX32JW03JGR29Y",
+    "sponsored": false,
+    "post_condition_mode": "allow",
+    "post_conditions": [],
+    "anchor_mode": "any",
+    "block_hash": "0x5c967da24f9734589d8503a695ee6d60fc8dddc26e5bcc4ea02863168aec16c7",
+    "block_height": 4024043,
+    "block_time": 1782537797,
+    "block_time_iso": "2026-06-27T05:23:17.000Z",
+    "burn_block_time": 1782537682,
+    "burn_block_height": 188435,
+    "burn_block_time_iso": "2026-06-27T05:21:22.000Z",
+    "parent_burn_block_time": 1782537682,
+    "parent_burn_block_time_iso": "2026-06-27T05:21:22.000Z",
+    "canonical": true,
+    "tx_index": 0,
+    "tx_status": "success",
+    "tx_result": {
+      "hex": "0x0703",
+      "repr": "(ok true)"
+    },
+    "event_count": 0,
+    "parent_block_hash": "0xf82a33d7d6b34a2cf628dbd0df37e184f1241a44fc247edada1860af4235c78b",
+    "is_unanchored": false,
+    "microblock_hash": "0x",
+    "microblock_sequence": 2147483647,
+    "microblock_canonical": true,
+    "execution_cost_read_count": 5,
+    "execution_cost_read_length": 6507,
+    "execution_cost_runtime": 16452,
+    "execution_cost_write_count": 1,
+    "execution_cost_write_length": 214,
+    "vm_error": null,
+    "events": [],
+    "tx_type": "contract_call",
+    "contract_call": {
+      "contract_id": "ST172BJD7XQ4J2NN8SXWC7R9WTMCX32JW03JGR29Y.legion-providers",
+      "function_name": "set-listing",
+      "function_signature": "(define-public (set-listing (model (string-ascii 64)) (endpoint (string-ascii 256))))",
+      "function_args": [
+        {
+          "hex": "0x0d000000156c6c616d612d332e322d31622d696e737472756374",
+          "repr": "\"llama-3.2-1b-instruct\"",
+          "name": "model",
+          "type": "(string-ascii 64)"
+        },
+        {
+          "hex": "0x0d0000003968747470733a2f2f66696374696f6e2d61646f7074696f6e2d646f6e616c642d686172766172642e747279636c6f7564666c6172652e636f6d",
+          "repr": "\"https://fiction-adoption-donald-harvard.trycloudflare.com\"",
+          "name": "endpoint",
+          "type": "(string-ascii 256)"
+        }
+      ]
+    }
+  }
+}

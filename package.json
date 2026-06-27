@@ -7,6 +7,7 @@
     "inspect-stacks-sdk": "node scripts/inspect-stacks-sdk.mjs",
     "wallet": "node scripts/wallet.mjs",
     "deploy": "node scripts/deploy.mjs",
+    "update-endpoint": "node scripts/update-endpoint.mjs",
     "verify": "node scripts/verify.mjs",
     "endpoint": "node endpoint/server.mjs"
   },

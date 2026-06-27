@@ -4,7 +4,17 @@ This repository is the public artifact for AIBTC bounty `mqv2rg0yed63e49306d4`: 
 
 ## Provider endpoint
 
-The provider sanity endpoint is `endpoint/v1.json`. The on-chain registration uses an immutable `raw.githubusercontent.com` URL pinned to the commit that contains this file.
+The live provider sanity endpoint is:
+
+```text
+https://fiction-adoption-donald-harvard.trycloudflare.com
+```
+
+The service is implemented in `endpoint/server.mjs` and exposes:
+
+- `GET /health`
+- `GET /v1/models`
+- `POST /v1/chat/completions`
 
 Sanity check:
 
@@ -42,7 +52,7 @@ The provider Legion is registered with:
 - registry id: `2`
 - `kind`: `provider`
 - `model`: `llama-3.2-1b-instruct`
-- `uri`: same immutable provider endpoint URL
+- `uri`: live provider endpoint URL
 
 ## Bond and treasury balance
 
@@ -55,8 +65,8 @@ To avoid ambiguity in the current contract/API interpretation, this implementati
 
 Verified AIBTC API snapshot:
 
-- `GET https://aibtc.com/api/legions` shows id `2`, `source=registry`, `kind=provider`, model `llama-3.2-1b-instruct`, and `treasuryBalance=1000000`.
-- `GET https://aibtc.com/api/legions/2` shows treasury balance `1000000` and one provider with bond `1000000`, active `true`, and the immutable endpoint URL.
+- `GET https://aibtc.com/api/legions` shows id `2`, `source=registry`, `kind=provider`, model `llama-3.2-1b-instruct`, `uri=https://fiction-adoption-donald-harvard.trycloudflare.com`, and `treasuryBalance=1000000`.
+- `GET https://aibtc.com/api/legions/2` shows treasury balance `1000000` and one provider with bond `1000000`, active `true`, and the live provider endpoint URL.
 
 ## Transaction links
 
@@ -69,6 +79,8 @@ Verified AIBTC API snapshot:
 - provider register and 1,000,000 sat bond: https://explorer.hiro.so/txid/0x76227fa845b5d63f2c4177e50cd8e991b382f133e1741141872fd30eb99edaa5?chain=testnet
 - treasury deposit 1,000,000 sat: https://explorer.hiro.so/txid/0x404392726b439021829e50d847f39cd110755405d49881850c7837e1ef4c9dac?chain=testnet
 - registry register: https://explorer.hiro.so/txid/0x85647754727b89b4d9f754f639517d64d759dfc0df54aac65f65f0284f7070ce?chain=testnet
+- provider listing update to live endpoint: https://explorer.hiro.so/txid/0xca3989296508af09ccd290060a0f832d7432b85ae3dafd7107cc01f31e54e7a7?chain=testnet
+- registry URI update to live endpoint: https://explorer.hiro.so/txid/0x66d92979717f42ce7c155c0604dae1ec2e9ed73ec54b6bbb6a5b2153c25b503f?chain=testnet
 
 ## Operational notes
 
@@ -76,4 +88,4 @@ The current AIBTC MCP connection available in this workspace reports `network=ma
 
 One implementation gotcha: `@stacks/transactions` currently defaults contract deploys to Clarity 4, but the AIBTC reference contracts use `as-contract`. A first deployment attempt failed with `use of unresolved function 'as-contract'`; the deploy script now pins contract deploys to `ClarityVersion.Clarity3`.
 
-The endpoint is static and public by design. It is a durable sanity endpoint for bounty verification, not a production inference service. A production provider should replace it with an OpenAI-compatible HTTPS service backed by a real non-Qwen model and add health, auth, rate limits, and operational monitoring.
+The current endpoint is a live testnet sanity provider exposed over HTTPS. A production provider should put the same service behind a durable operator domain and add auth, rate limits, logs, health monitoring, and restart supervision.

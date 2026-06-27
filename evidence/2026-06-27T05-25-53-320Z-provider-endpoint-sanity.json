@@ -1,0 +1,82 @@
+{
+  "checkedAt": "2026-06-27T05:25:50.603Z",
+  "endpoint": "https://fiction-adoption-donald-harvard.trycloudflare.com",
+  "checks": {
+    "rootOk": true,
+    "healthOk": true,
+    "modelsOk": true,
+    "chatOk": true,
+    "modelMatches": true
+  },
+  "responses": {
+    "root": {
+      "url": "https://fiction-adoption-donald-harvard.trycloudflare.com",
+      "status": 200,
+      "ok": true,
+      "body": {
+        "service": "aibtc-legion-provider",
+        "network": "stacks-testnet",
+        "model": "llama-3.2-1b-instruct",
+        "status": "ok",
+        "startedAt": "2026-06-27T05:21:01.305Z",
+        "routes": [
+          "/health",
+          "/v1/models",
+          "/v1/chat/completions"
+        ]
+      }
+    },
+    "health": {
+      "url": "https://fiction-adoption-donald-harvard.trycloudflare.com/health",
+      "status": 200,
+      "ok": true,
+      "body": {
+        "status": "ok",
+        "model": "llama-3.2-1b-instruct",
+        "network": "stacks-testnet",
+        "startedAt": "2026-06-27T05:21:01.305Z"
+      }
+    },
+    "models": {
+      "url": "https://fiction-adoption-donald-harvard.trycloudflare.com/v1/models",
+      "status": 200,
+      "ok": true,
+      "body": {
+        "object": "list",
+        "data": [
+          {
+            "id": "llama-3.2-1b-instruct",
+            "object": "model",
+            "owned_by": "fy-aibtc-legion-testnet"
+          }
+        ]
+      }
+    },
+    "chat": {
+      "url": "https://fiction-adoption-donald-harvard.trycloudflare.com/v1/chat/completions",
+      "status": 200,
+      "ok": true,
+      "body": {
+        "id": "chatcmpl-testnet-1782537953135",
+        "object": "chat.completion",
+        "created": 1782537953,
+        "model": "llama-3.2-1b-instruct",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "AIBTC testnet provider sanity response from llama-3.2-1b-instruct. Received: AIBTC provider sanity check after registry URI update"
+            },
+            "finish_reason": "stop"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 0,
+          "completion_tokens": 0,
+          "total_tokens": 0
+        }
+      }
+    }
+  }
+}
