@@ -6,6 +6,7 @@ import { createNetwork } from '@stacks/network';
 import {
   AnchorMode,
   Cl,
+  ClarityVersion,
   PostConditionMode,
   broadcastTransaction,
   cvToJSON,
@@ -16,8 +17,8 @@ import {
   makeContractDeploy,
   makeRandomPrivKey,
   principalCV,
+  serializeTransactionBytes,
   stringAsciiCV,
-  transactionToHex,
   txidFromData,
   uintCV,
 } from '@stacks/transactions';
@@ -149,10 +150,13 @@ export function safeJson(text) {
 
 export async function broadcast(tx) {
   const response = await broadcastTransaction({ transaction: tx, network });
-  const hex = transactionToHex(tx);
-  const txid = txidFromData(hex);
+  const returnedTxid = typeof response === 'string'
+    ? response
+    : response?.txid ?? response?.txId;
+  const localTxid = txidFromData(serializeTransactionBytes(tx));
+  const txid = returnedTxid ?? localTxid;
   return {
-    txid: txid.startsWith('0x') ? txid.slice(2) : txid,
+    txid: String(txid).startsWith('0x') ? String(txid).slice(2) : String(txid),
     response,
   };
 }
@@ -178,6 +182,7 @@ export async function deployContract({ senderKey, nonce, name, codeBody, fee = 2
   const tx = await makeContractDeploy({
     contractName: name,
     codeBody,
+    clarityVersion: ClarityVersion.Clarity3,
     senderKey,
     network,
     anchorMode: AnchorMode.Any,
