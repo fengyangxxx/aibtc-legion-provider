@@ -1,0 +1,63 @@
+{
+  "record": {
+    "label": "providers-set-token",
+    "txid": "152e3dfcbf7b8b0ea9f8e1c073b1deeada027d2f445981a8f9298bef0630defa",
+    "explorer": "https://explorer.hiro.so/txid/0x152e3dfcbf7b8b0ea9f8e1c073b1deeada027d2f445981a8f9298bef0630defa?chain=testnet",
+    "confirmedAt": "2026-06-27T04:55:22.152Z",
+    "status": "success",
+    "blockHeight": 4024026
+  },
+  "tx": {
+    "tx_id": "0x152e3dfcbf7b8b0ea9f8e1c073b1deeada027d2f445981a8f9298bef0630defa",
+    "nonce": 5,
+    "fee_rate": "80000",
+    "sender_address": "ST172BJD7XQ4J2NN8SXWC7R9WTMCX32JW03JGR29Y",
+    "sponsored": false,
+    "post_condition_mode": "allow",
+    "post_conditions": [],
+    "anchor_mode": "any",
+    "block_hash": "0x7ea901439ecd171e4f2e67c434d989769264d272f7b5d3230ef894942cff9f0b",
+    "block_height": 4024026,
+    "block_time": 1782536107,
+    "block_time_iso": "2026-06-27T04:55:07.000Z",
+    "burn_block_time": 1782536003,
+    "burn_block_height": 188428,
+    "burn_block_time_iso": "2026-06-27T04:53:23.000Z",
+    "parent_burn_block_time": 1782536003,
+    "parent_burn_block_time_iso": "2026-06-27T04:53:23.000Z",
+    "canonical": true,
+    "tx_index": 0,
+    "tx_status": "success",
+    "tx_result": {
+      "hex": "0x0703",
+      "repr": "(ok true)"
+    },
+    "event_count": 0,
+    "parent_block_hash": "0x5c45f1f6cb49b7393a67c2b3d322be498c20c51da381d3167b506fa1f7782917",
+    "is_unanchored": false,
+    "microblock_hash": "0x",
+    "microblock_sequence": 2147483647,
+    "microblock_canonical": true,
+    "execution_cost_read_count": 5,
+    "execution_cost_read_length": 6227,
+    "execution_cost_runtime": 11569,
+    "execution_cost_write_count": 1,
+    "execution_cost_write_length": 35,
+    "vm_error": null,
+    "events": [],
+    "tx_type": "contract_call",
+    "contract_call": {
+      "contract_id": "ST172BJD7XQ4J2NN8SXWC7R9WTMCX32JW03JGR29Y.legion-providers",
+      "function_name": "set-token",
+      "function_signature": "(define-public (set-token (token principal)))",
+      "function_args": [
+        {
+          "hex": "0x061a3699883a5bd5324eb8975e56bec8a9f843409b4e0a736274632d746f6b656e",
+          "repr": "'STV9K21TBFAK4KNRJXF5DFP8N7W46G4V9RJ5XDY2.sbtc-token",
+          "name": "token",
+          "type": "principal"
+        }
+      ]
+    }
+  }
+}

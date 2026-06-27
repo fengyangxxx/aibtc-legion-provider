@@ -1,0 +1,77 @@
+{
+  "record": {
+    "label": "treasury-set-token",
+    "txid": "c5537719425b20b15ed7181fa8686715c31c46b5508ad4387cec19a13e3afda7",
+    "explorer": "https://explorer.hiro.so/txid/0xc5537719425b20b15ed7181fa8686715c31c46b5508ad4387cec19a13e3afda7?chain=testnet",
+    "confirmedAt": "2026-06-27T04:55:05.339Z",
+    "status": "success",
+    "blockHeight": 4024025
+  },
+  "tx": {
+    "tx_id": "0xc5537719425b20b15ed7181fa8686715c31c46b5508ad4387cec19a13e3afda7",
+    "nonce": 4,
+    "fee_rate": "80000",
+    "sender_address": "ST172BJD7XQ4J2NN8SXWC7R9WTMCX32JW03JGR29Y",
+    "sponsored": false,
+    "post_condition_mode": "allow",
+    "post_conditions": [],
+    "anchor_mode": "any",
+    "block_hash": "0x5c45f1f6cb49b7393a67c2b3d322be498c20c51da381d3167b506fa1f7782917",
+    "block_height": 4024025,
+    "block_time": 1782536090,
+    "block_time_iso": "2026-06-27T04:54:50.000Z",
+    "burn_block_time": 1782536003,
+    "burn_block_height": 188428,
+    "burn_block_time_iso": "2026-06-27T04:53:23.000Z",
+    "parent_burn_block_time": 1782536003,
+    "parent_burn_block_time_iso": "2026-06-27T04:53:23.000Z",
+    "canonical": true,
+    "tx_index": 0,
+    "tx_status": "success",
+    "tx_result": {
+      "hex": "0x0703",
+      "repr": "(ok true)"
+    },
+    "event_count": 1,
+    "parent_block_hash": "0xf077e781d4e4a04ddbde5ae6bfa40342ab9fc820f0f26472bdd63bda32162770",
+    "is_unanchored": false,
+    "microblock_hash": "0x",
+    "microblock_sequence": 2147483647,
+    "microblock_canonical": true,
+    "execution_cost_read_count": 5,
+    "execution_cost_read_length": 3129,
+    "execution_cost_runtime": 15073,
+    "execution_cost_write_count": 1,
+    "execution_cost_write_length": 35,
+    "vm_error": null,
+    "events": [
+      {
+        "event_index": 0,
+        "event_type": "smart_contract_log",
+        "tx_id": "0xc5537719425b20b15ed7181fa8686715c31c46b5508ad4387cec19a13e3afda7",
+        "contract_log": {
+          "contract_id": "ST172BJD7XQ4J2NN8SXWC7R9WTMCX32JW03JGR29Y.legion-treasury",
+          "topic": "print",
+          "value": {
+            "hex": "0x0c00000002056576656e740d000000097365742d746f6b656e05746f6b656e061a3699883a5bd5324eb8975e56bec8a9f843409b4e0a736274632d746f6b656e",
+            "repr": "(tuple (event \"set-token\") (token 'STV9K21TBFAK4KNRJXF5DFP8N7W46G4V9RJ5XDY2.sbtc-token))"
+          }
+        }
+      }
+    ],
+    "tx_type": "contract_call",
+    "contract_call": {
+      "contract_id": "ST172BJD7XQ4J2NN8SXWC7R9WTMCX32JW03JGR29Y.legion-treasury",
+      "function_name": "set-token",
+      "function_signature": "(define-public (set-token (token principal)))",
+      "function_args": [
+        {
+          "hex": "0x061a3699883a5bd5324eb8975e56bec8a9f843409b4e0a736274632d746f6b656e",
+          "repr": "'STV9K21TBFAK4KNRJXF5DFP8N7W46G4V9RJ5XDY2.sbtc-token",
+          "name": "token",
+          "type": "principal"
+        }
+      ]
+    }
+  }
+}

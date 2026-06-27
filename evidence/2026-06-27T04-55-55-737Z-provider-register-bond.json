@@ -1,0 +1,107 @@
+{
+  "record": {
+    "label": "provider-register-bond",
+    "txid": "76227fa845b5d63f2c4177e50cd8e991b382f133e1741141872fd30eb99edaa5",
+    "explorer": "https://explorer.hiro.so/txid/0x76227fa845b5d63f2c4177e50cd8e991b382f133e1741141872fd30eb99edaa5?chain=testnet",
+    "confirmedAt": "2026-06-27T04:55:55.736Z",
+    "status": "success",
+    "blockHeight": 4024028
+  },
+  "tx": {
+    "tx_id": "0x76227fa845b5d63f2c4177e50cd8e991b382f133e1741141872fd30eb99edaa5",
+    "nonce": 7,
+    "fee_rate": "80000",
+    "sender_address": "ST172BJD7XQ4J2NN8SXWC7R9WTMCX32JW03JGR29Y",
+    "sponsored": false,
+    "post_condition_mode": "allow",
+    "post_conditions": [],
+    "anchor_mode": "any",
+    "block_hash": "0x6e228fb46ddd97a74a3ef43425c431637d98a6adc77c41d9f2772e19283ec501",
+    "block_height": 4024028,
+    "block_time": 1782536140,
+    "block_time_iso": "2026-06-27T04:55:40.000Z",
+    "burn_block_time": 1782536003,
+    "burn_block_height": 188428,
+    "burn_block_time_iso": "2026-06-27T04:53:23.000Z",
+    "parent_burn_block_time": 1782536003,
+    "parent_burn_block_time_iso": "2026-06-27T04:53:23.000Z",
+    "canonical": true,
+    "tx_index": 0,
+    "tx_status": "success",
+    "tx_result": {
+      "hex": "0x0703",
+      "repr": "(ok true)"
+    },
+    "event_count": 2,
+    "parent_block_hash": "0x508ceb97b904af31436fc692104eafcea102428cae98efb413b47f96896e98a8",
+    "is_unanchored": false,
+    "microblock_hash": "0x",
+    "microblock_sequence": 2147483647,
+    "microblock_canonical": true,
+    "execution_cost_read_count": 12,
+    "execution_cost_read_length": 8688,
+    "execution_cost_runtime": 49539,
+    "execution_cost_write_count": 3,
+    "execution_cost_write_length": 283,
+    "vm_error": null,
+    "events": [
+      {
+        "event_index": 0,
+        "event_type": "fungible_token_asset",
+        "tx_id": "0x76227fa845b5d63f2c4177e50cd8e991b382f133e1741141872fd30eb99edaa5",
+        "asset": {
+          "asset_event_type": "transfer",
+          "asset_id": "STV9K21TBFAK4KNRJXF5DFP8N7W46G4V9RJ5XDY2.sbtc-token::sbtc-token",
+          "sender": "ST172BJD7XQ4J2NN8SXWC7R9WTMCX32JW03JGR29Y",
+          "recipient": "ST172BJD7XQ4J2NN8SXWC7R9WTMCX32JW03JGR29Y.legion-providers",
+          "amount": "1000000"
+        }
+      },
+      {
+        "event_index": 1,
+        "event_type": "smart_contract_log",
+        "tx_id": "0x76227fa845b5d63f2c4177e50cd8e991b382f133e1741141872fd30eb99edaa5",
+        "contract_log": {
+          "contract_id": "ST172BJD7XQ4J2NN8SXWC7R9WTMCX32JW03JGR29Y.legion-providers",
+          "topic": "print",
+          "value": {
+            "hex": "0x0c0000000404626f6e6401000000000000000000000000000f4240056576656e740d000000087265676973746572056d6f64656c0d000000156c6c616d612d332e322d31622d696e7374727563740870726f7669646572051a4e25c9a7edc92156a8cf78c3e13cd519d18a5c00",
+            "repr": "(tuple (bond u1000000) (event \"register\") (model \"llama-3.2-1b-instruct\") (provider 'ST172BJD7XQ4J2NN8SXWC7R9WTMCX32JW03JGR29Y))"
+          }
+        }
+      }
+    ],
+    "tx_type": "contract_call",
+    "contract_call": {
+      "contract_id": "ST172BJD7XQ4J2NN8SXWC7R9WTMCX32JW03JGR29Y.legion-providers",
+      "function_name": "register",
+      "function_signature": "(define-public (register (ft trait_reference) (model (string-ascii 64)) (endpoint (string-ascii 256)) (bond uint)))",
+      "function_args": [
+        {
+          "hex": "0x061a3699883a5bd5324eb8975e56bec8a9f843409b4e0a736274632d746f6b656e",
+          "repr": "'STV9K21TBFAK4KNRJXF5DFP8N7W46G4V9RJ5XDY2.sbtc-token",
+          "name": "ft",
+          "type": "trait_reference"
+        },
+        {
+          "hex": "0x0d000000156c6c616d612d332e322d31622d696e737472756374",
+          "repr": "\"llama-3.2-1b-instruct\"",
+          "name": "model",
+          "type": "(string-ascii 64)"
+        },
+        {
+          "hex": "0x0d0000007d68747470733a2f2f7261772e67697468756275736572636f6e74656e742e636f6d2f66656e6779616e677878782f61696274632d6c6567696f6e2d70726f76696465722f393438376639636563666434366137333734323930333066646134393830393530303064383336392f656e64706f696e742f76312e6a736f6e",
+          "repr": "\"https://raw.githubusercontent.com/fengyangxxx/aibtc-legion-provider/9487f9cecfd46a737429030fda498095000d8369/endpoint/v1.json\"",
+          "name": "endpoint",
+          "type": "(string-ascii 256)"
+        },
+        {
+          "hex": "0x01000000000000000000000000000f4240",
+          "repr": "u1000000",
+          "name": "bond",
+          "type": "uint"
+        }
+      ]
+    }
+  }
+}

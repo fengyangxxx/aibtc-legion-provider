@@ -1,0 +1,69 @@
+{
+  "record": {
+    "label": "sbtc-faucet",
+    "txid": "e377c5e98735e9279c2763f570362e332a1435f7f8090ce5d11e5170c62374a6",
+    "explorer": "https://explorer.hiro.so/txid/0xe377c5e98735e9279c2763f570362e332a1435f7f8090ce5d11e5170c62374a6?chain=testnet",
+    "confirmedAt": "2026-06-27T04:55:38.919Z",
+    "status": "success",
+    "blockHeight": 4024027
+  },
+  "tx": {
+    "tx_id": "0xe377c5e98735e9279c2763f570362e332a1435f7f8090ce5d11e5170c62374a6",
+    "nonce": 6,
+    "fee_rate": "80000",
+    "sender_address": "ST172BJD7XQ4J2NN8SXWC7R9WTMCX32JW03JGR29Y",
+    "sponsored": false,
+    "post_condition_mode": "allow",
+    "post_conditions": [],
+    "anchor_mode": "any",
+    "block_hash": "0x508ceb97b904af31436fc692104eafcea102428cae98efb413b47f96896e98a8",
+    "block_height": 4024027,
+    "block_time": 1782536124,
+    "block_time_iso": "2026-06-27T04:55:24.000Z",
+    "burn_block_time": 1782536003,
+    "burn_block_height": 188428,
+    "burn_block_time_iso": "2026-06-27T04:53:23.000Z",
+    "parent_burn_block_time": 1782536003,
+    "parent_burn_block_time_iso": "2026-06-27T04:53:23.000Z",
+    "canonical": true,
+    "tx_index": 0,
+    "tx_status": "success",
+    "tx_result": {
+      "hex": "0x0703",
+      "repr": "(ok true)"
+    },
+    "event_count": 1,
+    "parent_block_hash": "0x7ea901439ecd171e4f2e67c434d989769264d272f7b5d3230ef894942cff9f0b",
+    "is_unanchored": false,
+    "microblock_hash": "0x",
+    "microblock_sequence": 2147483647,
+    "microblock_canonical": true,
+    "execution_cost_read_count": 5,
+    "execution_cost_read_length": 2404,
+    "execution_cost_runtime": 4620,
+    "execution_cost_write_count": 2,
+    "execution_cost_write_length": 1,
+    "vm_error": null,
+    "events": [
+      {
+        "event_index": 0,
+        "event_type": "fungible_token_asset",
+        "tx_id": "0xe377c5e98735e9279c2763f570362e332a1435f7f8090ce5d11e5170c62374a6",
+        "asset": {
+          "asset_event_type": "mint",
+          "asset_id": "STV9K21TBFAK4KNRJXF5DFP8N7W46G4V9RJ5XDY2.sbtc-token::sbtc-token",
+          "sender": "",
+          "recipient": "ST172BJD7XQ4J2NN8SXWC7R9WTMCX32JW03JGR29Y",
+          "amount": "690000000"
+        }
+      }
+    ],
+    "tx_type": "contract_call",
+    "contract_call": {
+      "contract_id": "STV9K21TBFAK4KNRJXF5DFP8N7W46G4V9RJ5XDY2.sbtc-token",
+      "function_name": "faucet",
+      "function_signature": "(define-public (faucet ))",
+      "function_args": []
+    }
+  }
+}

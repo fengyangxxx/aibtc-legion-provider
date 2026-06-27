@@ -1,0 +1,243 @@
+{
+  "verifiedAt": "2026-06-27T04:57:27.856Z",
+  "apiBase": "https://api.testnet.hiro.so",
+  "state": {
+    "network": "stacks-testnet",
+    "apiBase": "https://api.testnet.hiro.so",
+    "deployer": "ST172BJD7XQ4J2NN8SXWC7R9WTMCX32JW03JGR29Y",
+    "providerEndpoint": "https://raw.githubusercontent.com/fengyangxxx/aibtc-legion-provider/9487f9cecfd46a737429030fda498095000d8369/endpoint/v1.json",
+    "model": "llama-3.2-1b-instruct",
+    "contracts": {
+      "legion-treasury": {
+        "id": "ST172BJD7XQ4J2NN8SXWC7R9WTMCX32JW03JGR29Y.legion-treasury",
+        "deployTxid": "682966485411ca8cc709fc34d87e6f89076dd483d3cdb3ae59708fc11ad74005",
+        "explorer": "https://explorer.hiro.so/txid/0x682966485411ca8cc709fc34d87e6f89076dd483d3cdb3ae59708fc11ad74005?chain=testnet"
+      },
+      "legion-providers": {
+        "id": "ST172BJD7XQ4J2NN8SXWC7R9WTMCX32JW03JGR29Y.legion-providers",
+        "deployTxid": "3098b43b172e03f924df7f03193672a3257b1b48ebc9ff28aeee38bb13c2d34a",
+        "explorer": "https://explorer.hiro.so/txid/0x3098b43b172e03f924df7f03193672a3257b1b48ebc9ff28aeee38bb13c2d34a?chain=testnet"
+      },
+      "legion-fees": {
+        "id": "ST172BJD7XQ4J2NN8SXWC7R9WTMCX32JW03JGR29Y.legion-fees",
+        "deployTxid": "1dd9b2c2cff57ed89a0d8eb5048e0c34d8e912617e29cce47d272347c4775d5b",
+        "explorer": "https://explorer.hiro.so/txid/0x1dd9b2c2cff57ed89a0d8eb5048e0c34d8e912617e29cce47d272347c4775d5b?chain=testnet"
+      }
+    },
+    "transactions": [
+      {
+        "label": "deploy-legion-treasury",
+        "txid": "682966485411ca8cc709fc34d87e6f89076dd483d3cdb3ae59708fc11ad74005",
+        "explorer": "https://explorer.hiro.so/txid/0x682966485411ca8cc709fc34d87e6f89076dd483d3cdb3ae59708fc11ad74005?chain=testnet",
+        "confirmedAt": "2026-06-27T04:54:14.265Z",
+        "status": "success",
+        "blockHeight": 4024021
+      },
+      {
+        "label": "deploy-legion-providers",
+        "txid": "3098b43b172e03f924df7f03193672a3257b1b48ebc9ff28aeee38bb13c2d34a",
+        "explorer": "https://explorer.hiro.so/txid/0x3098b43b172e03f924df7f03193672a3257b1b48ebc9ff28aeee38bb13c2d34a?chain=testnet",
+        "confirmedAt": "2026-06-27T04:54:31.183Z",
+        "status": "success",
+        "blockHeight": 4024023
+      },
+      {
+        "label": "deploy-legion-fees",
+        "txid": "1dd9b2c2cff57ed89a0d8eb5048e0c34d8e912617e29cce47d272347c4775d5b",
+        "explorer": "https://explorer.hiro.so/txid/0x1dd9b2c2cff57ed89a0d8eb5048e0c34d8e912617e29cce47d272347c4775d5b?chain=testnet",
+        "confirmedAt": "2026-06-27T04:54:48.194Z",
+        "status": "success",
+        "blockHeight": 4024024
+      },
+      {
+        "label": "treasury-set-token",
+        "txid": "c5537719425b20b15ed7181fa8686715c31c46b5508ad4387cec19a13e3afda7",
+        "explorer": "https://explorer.hiro.so/txid/0xc5537719425b20b15ed7181fa8686715c31c46b5508ad4387cec19a13e3afda7?chain=testnet",
+        "confirmedAt": "2026-06-27T04:55:05.339Z",
+        "status": "success",
+        "blockHeight": 4024025
+      },
+      {
+        "label": "providers-set-token",
+        "txid": "152e3dfcbf7b8b0ea9f8e1c073b1deeada027d2f445981a8f9298bef0630defa",
+        "explorer": "https://explorer.hiro.so/txid/0x152e3dfcbf7b8b0ea9f8e1c073b1deeada027d2f445981a8f9298bef0630defa?chain=testnet",
+        "confirmedAt": "2026-06-27T04:55:22.152Z",
+        "status": "success",
+        "blockHeight": 4024026
+      },
+      {
+        "label": "sbtc-faucet",
+        "txid": "e377c5e98735e9279c2763f570362e332a1435f7f8090ce5d11e5170c62374a6",
+        "explorer": "https://explorer.hiro.so/txid/0xe377c5e98735e9279c2763f570362e332a1435f7f8090ce5d11e5170c62374a6?chain=testnet",
+        "confirmedAt": "2026-06-27T04:55:38.919Z",
+        "status": "success",
+        "blockHeight": 4024027
+      },
+      {
+        "label": "provider-register-bond",
+        "txid": "76227fa845b5d63f2c4177e50cd8e991b382f133e1741141872fd30eb99edaa5",
+        "explorer": "https://explorer.hiro.so/txid/0x76227fa845b5d63f2c4177e50cd8e991b382f133e1741141872fd30eb99edaa5?chain=testnet",
+        "confirmedAt": "2026-06-27T04:55:55.736Z",
+        "status": "success",
+        "blockHeight": 4024028
+      },
+      {
+        "label": "treasury-deposit-1m",
+        "txid": "404392726b439021829e50d847f39cd110755405d49881850c7837e1ef4c9dac",
+        "explorer": "https://explorer.hiro.so/txid/0x404392726b439021829e50d847f39cd110755405d49881850c7837e1ef4c9dac?chain=testnet",
+        "confirmedAt": "2026-06-27T04:56:13.012Z",
+        "status": "success",
+        "blockHeight": 4024029
+      },
+      {
+        "label": "registry-register-provider",
+        "txid": "85647754727b89b4d9f754f639517d64d759dfc0df54aac65f65f0284f7070ce",
+        "explorer": "https://explorer.hiro.so/txid/0x85647754727b89b4d9f754f639517d64d759dfc0df54aac65f65f0284f7070ce?chain=testnet",
+        "confirmedAt": "2026-06-27T04:56:29.980Z",
+        "status": "success",
+        "blockHeight": 4024030
+      }
+    ],
+    "readOnly": {
+      "treasuryBalance": {
+        "raw": {
+          "type": "uint",
+          "value": "1000000"
+        },
+        "value": "1000000"
+      },
+      "provider": {
+        "raw": {
+          "type": "(optional (tuple (active bool) (bond uint) (endpoint (string-ascii 125)) (jobs-fail uint) (jobs-ok uint) (model (string-ascii 21))))",
+          "value": {
+            "type": "(tuple (active bool) (bond uint) (endpoint (string-ascii 125)) (jobs-fail uint) (jobs-ok uint) (model (string-ascii 21)))",
+            "value": {
+              "active": {
+                "type": "bool",
+                "value": true
+              },
+              "bond": {
+                "type": "uint",
+                "value": "1000000"
+              },
+              "endpoint": {
+                "type": "(string-ascii 125)",
+                "value": "https://raw.githubusercontent.com/fengyangxxx/aibtc-legion-provider/9487f9cecfd46a737429030fda498095000d8369/endpoint/v1.json"
+              },
+              "jobs-fail": {
+                "type": "uint",
+                "value": "0"
+              },
+              "jobs-ok": {
+                "type": "uint",
+                "value": "0"
+              },
+              "model": {
+                "type": "(string-ascii 21)",
+                "value": "llama-3.2-1b-instruct"
+              }
+            }
+          }
+        },
+        "value": {
+          "type": "(tuple (active bool) (bond uint) (endpoint (string-ascii 125)) (jobs-fail uint) (jobs-ok uint) (model (string-ascii 21)))",
+          "value": {
+            "active": {
+              "type": "bool",
+              "value": true
+            },
+            "bond": {
+              "type": "uint",
+              "value": "1000000"
+            },
+            "endpoint": {
+              "type": "(string-ascii 125)",
+              "value": "https://raw.githubusercontent.com/fengyangxxx/aibtc-legion-provider/9487f9cecfd46a737429030fda498095000d8369/endpoint/v1.json"
+            },
+            "jobs-fail": {
+              "type": "uint",
+              "value": "0"
+            },
+            "jobs-ok": {
+              "type": "uint",
+              "value": "0"
+            },
+            "model": {
+              "type": "(string-ascii 21)",
+              "value": "llama-3.2-1b-instruct"
+            }
+          }
+        }
+      },
+      "registryCount": {
+        "raw": {
+          "type": "uint",
+          "value": "2"
+        },
+        "value": "2"
+      }
+    },
+    "updatedAt": "2026-06-27T04:56:31.130Z"
+  },
+  "endpointProbe": {
+    "url": "https://raw.githubusercontent.com/fengyangxxx/aibtc-legion-provider/9487f9cecfd46a737429030fda498095000d8369/endpoint/v1.json",
+    "status": 200,
+    "ok": true,
+    "body": {
+      "service": "aibtc-legion-provider",
+      "network": "stacks-testnet",
+      "status": "ok",
+      "model": "llama-3.2-1b-instruct",
+      "providerAddress": "ST172BJD7XQ4J2NN8SXWC7R9WTMCX32JW03JGR29Y",
+      "sanityCheck": {
+        "method": "GET",
+        "expected": "HTTP 200 JSON response with status=ok and model=llama-3.2-1b-instruct"
+      },
+      "note": "Static sanity endpoint for the first non-Qwen AIBTC provider Legion on Stacks testnet. The on-chain provider listing points here so reviewers can verify model diversity and a reachable endpoint without any API key."
+    }
+  },
+  "aibtcLegions": {
+    "url": "https://aibtc.com/api/legions",
+    "status": 200,
+    "ok": true,
+    "body": {
+      "updatedAt": 1782535526626,
+      "legions": [
+        {
+          "id": "demand",
+          "kind": "demand",
+          "owner": "STBEMQQVSS3K3SQTF2NRZMF82JHMNTHQKQ2J7DW5",
+          "model": "",
+          "uri": "AIBTC Demand Legion",
+          "active": true,
+          "treasuryBalance": 503900,
+          "count": 11,
+          "source": "fallback"
+        },
+        {
+          "id": "1",
+          "kind": "provider",
+          "owner": "STGX5YP51NKM69ZMP6DVB6GAJAANCG5WB3718KD9",
+          "model": "qwen2.5-7b",
+          "uri": "provider legion #1 (Qwen)",
+          "active": true,
+          "treasuryBalance": 200,
+          "count": 1,
+          "source": "registry"
+        }
+      ],
+      "errors": []
+    }
+  },
+  "matchedLegion": null,
+  "aibtcLegionDetail": null,
+  "checks": {
+    "endpointHttps": true,
+    "endpointOk": true,
+    "modelIsNonQwen": true,
+    "treasuryReadOnlyBalanceAtLeast1m": true,
+    "providerBondAtLeast1m": true,
+    "aibtcListShowsRegistryProvider": false,
+    "aibtcDetailFetched": false
+  }
+}

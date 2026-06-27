@@ -36,7 +36,8 @@ const match = entries.find(item =>
 const detail = match?.id ? await fetchJson(`https://aibtc.com/api/legions/${match.id}`) : null;
 
 const treasuryBalance = BigInt(state.readOnly?.treasuryBalance?.value ?? 0);
-const providerBond = BigInt(state.readOnly?.provider?.value?.value?.bond ?? state.readOnly?.provider?.value?.bond ?? 0);
+const providerTuple = state.readOnly?.provider?.value?.value ?? state.readOnly?.provider?.value ?? {};
+const providerBond = BigInt(providerTuple?.bond?.value ?? providerTuple?.bond ?? 0);
 const checks = {
   endpointHttps: /^https:\/\//.test(state.providerEndpoint),
   endpointOk: endpointProbe.ok,

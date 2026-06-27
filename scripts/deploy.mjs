@@ -25,6 +25,7 @@ import {
   uint,
   waitForTx,
   writeJson,
+  jsonReplacer,
 } from './common.mjs';
 
 const endpoint = process.env.PROVIDER_ENDPOINT;
@@ -226,4 +227,4 @@ console.log(JSON.stringify({
   deployer: wallet.address,
   contracts: state.contracts,
   readOnly: state.readOnly,
-}, null, 2));
+}, jsonReplacer, 2));

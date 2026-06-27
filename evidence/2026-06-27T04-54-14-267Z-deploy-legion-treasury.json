@@ -1,0 +1,55 @@
+{
+  "record": {
+    "label": "deploy-legion-treasury",
+    "txid": "682966485411ca8cc709fc34d87e6f89076dd483d3cdb3ae59708fc11ad74005",
+    "explorer": "https://explorer.hiro.so/txid/0x682966485411ca8cc709fc34d87e6f89076dd483d3cdb3ae59708fc11ad74005?chain=testnet",
+    "confirmedAt": "2026-06-27T04:54:14.265Z",
+    "status": "success",
+    "blockHeight": 4024021
+  },
+  "tx": {
+    "tx_id": "0x682966485411ca8cc709fc34d87e6f89076dd483d3cdb3ae59708fc11ad74005",
+    "nonce": 1,
+    "fee_rate": "200000",
+    "sender_address": "ST172BJD7XQ4J2NN8SXWC7R9WTMCX32JW03JGR29Y",
+    "sponsored": false,
+    "post_condition_mode": "allow",
+    "post_conditions": [],
+    "anchor_mode": "any",
+    "block_hash": "0xd8d4692b95f1b3e8d56fc5e4dbf1ef107d93fad964a3c0df0220b05036f1d8c3",
+    "block_height": 4024021,
+    "block_time": 1782536024,
+    "block_time_iso": "2026-06-27T04:53:44.000Z",
+    "burn_block_time": 1782536003,
+    "burn_block_height": 188428,
+    "burn_block_time_iso": "2026-06-27T04:53:23.000Z",
+    "parent_burn_block_time": 1782536003,
+    "parent_burn_block_time_iso": "2026-06-27T04:53:23.000Z",
+    "canonical": true,
+    "tx_index": 0,
+    "tx_status": "success",
+    "tx_result": {
+      "hex": "0x0703",
+      "repr": "(ok true)"
+    },
+    "event_count": 0,
+    "parent_block_hash": "0x10a8a10f2a640ae26b83316fe144dc1dd1c01cfe22bef30af7c3962ff912bfe6",
+    "is_unanchored": false,
+    "microblock_hash": "0x",
+    "microblock_sequence": 2147483647,
+    "microblock_canonical": true,
+    "execution_cost_read_count": 2,
+    "execution_cost_read_length": 46,
+    "execution_cost_runtime": 182653,
+    "execution_cost_write_count": 8,
+    "execution_cost_write_length": 3620,
+    "vm_error": null,
+    "events": [],
+    "tx_type": "smart_contract",
+    "smart_contract": {
+      "clarity_version": 3,
+      "contract_id": "ST172BJD7XQ4J2NN8SXWC7R9WTMCX32JW03JGR29Y.legion-treasury",
+      "source_code": ";; legion-treasury\n;; Holds pool-accounted sBTC for a provider Legion.\n\n(use-trait sip010-trait 'STTWD9SPRQVD3P733V89SV0P8RZRZNQADG034F0A.faktory-trait-v1.sip-010-trait)\n\n(define-constant DEPLOYER tx-sender)\n\n(define-constant ERR_UNAUTHORIZED (err u401))\n(define-constant ERR_INSUFFICIENT (err u402))\n(define-constant ERR_ALREADY_WIRED (err u403))\n(define-constant ERR_ZERO_AMOUNT (err u409))\n(define-constant ERR_INVALID_PRINCIPAL (err u410))\n(define-constant ERR_INVALID_RECIPIENT (err u411))\n(define-constant ERR_WRONG_TOKEN (err u412))\n\n(define-data-var Gov (optional principal) none)\n(define-data-var Token (optional principal) none)\n(define-data-var Balance uint u0)\n\n(define-read-only (get-balance)\n  (var-get Balance)\n)\n\n(define-read-only (get-gov)\n  (var-get Gov)\n)\n\n(define-read-only (get-token)\n  (var-get Token)\n)\n\n(define-private (is-authorized-mover (who principal))\n  (is-eq (some who) (var-get Gov))\n)\n\n(define-public (set-gov (gov principal))\n  (begin\n    (asserts! (is-eq contract-caller DEPLOYER) ERR_UNAUTHORIZED)\n    (asserts! (is-none (var-get Gov)) ERR_ALREADY_WIRED)\n    (asserts! (not (is-eq gov (as-contract tx-sender))) ERR_INVALID_PRINCIPAL)\n    (var-set Gov (some gov))\n    (print { event: \"set-gov\", gov: gov })\n    (ok true)\n  )\n)\n\n(define-public (set-token (token principal))\n  (begin\n    (asserts! (is-eq contract-caller DEPLOYER) ERR_UNAUTHORIZED)\n    (asserts! (is-none (var-get Token)) ERR_ALREADY_WIRED)\n    (asserts! (not (is-eq token (as-contract tx-sender))) ERR_INVALID_PRINCIPAL)\n    (var-set Token (some token))\n    (print { event: \"set-token\", token: token })\n    (ok true)\n  )\n)\n\n(define-public (deposit\n    (ft <sip010-trait>)\n    (amount uint)\n  )\n  (begin\n    (asserts! (is-eq (contract-of ft) (unwrap! (var-get Token) ERR_WRONG_TOKEN)) ERR_WRONG_TOKEN)\n    (asserts! (> amount u0) ERR_ZERO_AMOUNT)\n    (try! (contract-call? ft transfer amount tx-sender (as-contract tx-sender) none))\n    (var-set Balance (+ (var-get Balance) amount))\n    (print { event: \"deposit\", from: tx-sender, amount: amount, balance: (var-get Balance) })\n    (ok true)\n  )\n)\n\n(define-public (execute-transfer\n    (ft <sip010-trait>)\n    (recipient principal)\n    (amount uint)\n  )\n  (let ((bal (var-get Balance)))\n    (asserts! (is-authorized-mover contract-caller) ERR_UNAUTHORIZED)\n    (asserts! (is-eq (contract-of ft) (unwrap! (var-get Token) ERR_WRONG_TOKEN)) ERR_WRONG_TOKEN)\n    (asserts! (> amount u0) ERR_ZERO_AMOUNT)\n    (asserts! (<= amount bal) ERR_INSUFFICIENT)\n    (asserts! (not (is-eq recipient (as-contract tx-sender))) ERR_INVALID_RECIPIENT)\n    (try! (as-contract (contract-call? ft transfer amount tx-sender recipient none)))\n    (var-set Balance (- bal amount))\n    (print { event: \"execute-transfer\", caller: contract-caller, recipient: recipient, amount: amount, balance: (var-get Balance) })\n    (ok true)\n  )\n)\n"
+    }
+  }
+}

@@ -1,0 +1,107 @@
+{
+  "record": {
+    "label": "registry-register-provider",
+    "txid": "85647754727b89b4d9f754f639517d64d759dfc0df54aac65f65f0284f7070ce",
+    "explorer": "https://explorer.hiro.so/txid/0x85647754727b89b4d9f754f639517d64d759dfc0df54aac65f65f0284f7070ce?chain=testnet",
+    "confirmedAt": "2026-06-27T04:56:29.980Z",
+    "status": "success",
+    "blockHeight": 4024030
+  },
+  "tx": {
+    "tx_id": "0x85647754727b89b4d9f754f639517d64d759dfc0df54aac65f65f0284f7070ce",
+    "nonce": 9,
+    "fee_rate": "80000",
+    "sender_address": "ST172BJD7XQ4J2NN8SXWC7R9WTMCX32JW03JGR29Y",
+    "sponsored": false,
+    "post_condition_mode": "allow",
+    "post_conditions": [],
+    "anchor_mode": "any",
+    "block_hash": "0xf1ef4e6cf46f7f30aea050f645dc222334fc225bd17de93529a88668e09e82e9",
+    "block_height": 4024030,
+    "block_time": 1782536176,
+    "block_time_iso": "2026-06-27T04:56:16.000Z",
+    "burn_block_time": 1782536003,
+    "burn_block_height": 188428,
+    "burn_block_time_iso": "2026-06-27T04:53:23.000Z",
+    "parent_burn_block_time": 1782536003,
+    "parent_burn_block_time_iso": "2026-06-27T04:53:23.000Z",
+    "canonical": true,
+    "tx_index": 0,
+    "tx_status": "success",
+    "tx_result": {
+      "hex": "0x070100000000000000000000000000000002",
+      "repr": "(ok u2)"
+    },
+    "event_count": 1,
+    "parent_block_hash": "0xd5882d60b396a59fc36fd3dde79f4222f8a210796e7e9ed82132465647497e62",
+    "is_unanchored": false,
+    "microblock_hash": "0x",
+    "microblock_sequence": 2147483647,
+    "microblock_canonical": true,
+    "execution_cost_read_count": 6,
+    "execution_cost_read_length": 4803,
+    "execution_cost_runtime": 26956,
+    "execution_cost_write_count": 2,
+    "execution_cost_write_length": 354,
+    "vm_error": null,
+    "events": [
+      {
+        "event_index": 0,
+        "event_type": "smart_contract_log",
+        "tx_id": "0x85647754727b89b4d9f754f639517d64d759dfc0df54aac65f65f0284f7070ce",
+        "contract_log": {
+          "contract_id": "STXGASYJR80W8RWNM7R4ENRJAPR75Y5W57J57V0J.legion-registry",
+          "topic": "print",
+          "value": {
+            "hex": "0x0c00000006056576656e740d0000000872656769737465720269640100000000000000000000000000000002046b696e640d0000000870726f7669646572056d6f64656c0d000000156c6c616d612d332e322d31622d696e737472756374056f776e6572051a4e25c9a7edc92156a8cf78c3e13cd519d18a5c00087472656173757279061a4e25c9a7edc92156a8cf78c3e13cd519d18a5c000f6c6567696f6e2d7472656173757279",
+            "repr": "(tuple (event \"register\") (id u2) (kind \"provider\") (model \"llama-3.2-1b-instruct\") (owner 'ST172BJD7XQ4J2NN8SXWC7R9WTMCX32JW03JGR29Y) (treasury 'ST172BJD7XQ4J2NN8SXWC7R9WTMCX32JW03JGR29Y.legion-treasury))"
+          }
+        }
+      }
+    ],
+    "tx_type": "contract_call",
+    "contract_call": {
+      "contract_id": "STXGASYJR80W8RWNM7R4ENRJAPR75Y5W57J57V0J.legion-registry",
+      "function_name": "register",
+      "function_signature": "(define-public (register (kind (string-ascii 16)) (treasury principal) (gov (optional principal)) (fees (optional principal)) (model (string-ascii 64)) (uri (string-ascii 256))))",
+      "function_args": [
+        {
+          "hex": "0x0d0000000870726f7669646572",
+          "repr": "\"provider\"",
+          "name": "kind",
+          "type": "(string-ascii 16)"
+        },
+        {
+          "hex": "0x061a4e25c9a7edc92156a8cf78c3e13cd519d18a5c000f6c6567696f6e2d7472656173757279",
+          "repr": "'ST172BJD7XQ4J2NN8SXWC7R9WTMCX32JW03JGR29Y.legion-treasury",
+          "name": "treasury",
+          "type": "principal"
+        },
+        {
+          "hex": "0x09",
+          "repr": "none",
+          "name": "gov",
+          "type": "(optional principal)"
+        },
+        {
+          "hex": "0x0a061a4e25c9a7edc92156a8cf78c3e13cd519d18a5c000b6c6567696f6e2d66656573",
+          "repr": "(some 'ST172BJD7XQ4J2NN8SXWC7R9WTMCX32JW03JGR29Y.legion-fees)",
+          "name": "fees",
+          "type": "(optional principal)"
+        },
+        {
+          "hex": "0x0d000000156c6c616d612d332e322d31622d696e737472756374",
+          "repr": "\"llama-3.2-1b-instruct\"",
+          "name": "model",
+          "type": "(string-ascii 64)"
+        },
+        {
+          "hex": "0x0d0000007d68747470733a2f2f7261772e67697468756275736572636f6e74656e742e636f6d2f66656e6779616e677878782f61696274632d6c6567696f6e2d70726f76696465722f393438376639636563666434366137333734323930333066646134393830393530303064383336392f656e64706f696e742f76312e6a736f6e",
+          "repr": "\"https://raw.githubusercontent.com/fengyangxxx/aibtc-legion-provider/9487f9cecfd46a737429030fda498095000d8369/endpoint/v1.json\"",
+          "name": "uri",
+          "type": "(string-ascii 256)"
+        }
+      ]
+    }
+  }
+}
