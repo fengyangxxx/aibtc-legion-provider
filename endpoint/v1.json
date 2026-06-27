@@ -1,0 +1,12 @@
+{
+  "service": "aibtc-legion-provider",
+  "network": "stacks-testnet",
+  "status": "ok",
+  "model": "llama-3.2-1b-instruct",
+  "providerAddress": "ST172BJD7XQ4J2NN8SXWC7R9WTMCX32JW03JGR29Y",
+  "sanityCheck": {
+    "method": "GET",
+    "expected": "HTTP 200 JSON response with status=ok and model=llama-3.2-1b-instruct"
+  },
+  "note": "Static sanity endpoint for the first non-Qwen AIBTC provider Legion on Stacks testnet. The on-chain provider listing points here so reviewers can verify model diversity and a reachable endpoint without any API key."
+}

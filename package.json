@@ -1,0 +1,20 @@
+{
+  "name": "aibtc-legion-provider",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "inspect-stacks-sdk": "node scripts/inspect-stacks-sdk.mjs",
+    "wallet": "node scripts/wallet.mjs",
+    "deploy": "node scripts/deploy.mjs",
+    "verify": "node scripts/verify.mjs",
+    "endpoint": "node endpoint/server.mjs"
+  },
+  "dependencies": {
+    "@stacks/network": "^7.2.0",
+    "@stacks/transactions": "^7.2.0",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2"
+  },
+  "devDependencies": {}
+}
